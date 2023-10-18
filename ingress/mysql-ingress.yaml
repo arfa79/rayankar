@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wordpress-ingress
+  name: mysql-ingress
 spec:
   rules:
     - host: alireza-feyzabadi-nl-rg3.maxtld.dev
@@ -11,6 +11,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: wordpress-service
+                name: mysql-service
                 port: 
-                  number: 86
+                  number: 80
+

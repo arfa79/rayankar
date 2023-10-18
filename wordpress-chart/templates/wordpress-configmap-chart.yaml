@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: wordpressconfigmapv1.0
+  namespace: default
+data:
+  BG_COLOR: '#12181B'
+  FONT_COLOR: '#FFFFFF'
+  CUSTOM_HEADER: ' THIS IS WORDPRESS WELCOME :) '
