@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: external
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+    - hosts:
+        - alireza-feyzabadi-nl-rg3.maxtld.dev
+      secretName: ssl-secret
+  rules:
+    - host: alireza-feyzabadi-nl-rg3.maxtld.dev
+      http:
+        paths:
+          - path: /phpmyadmin
+            pathType: Prefix
+            backend:
+              service:
+                name: phpmyadmin-service2
+                port:
+                  number: 8082
+          - path: /wordpress
+            pathType: Prefix
+            backend:
+              service:
+                name: wordpress-service
+                port:
+                  number: 80

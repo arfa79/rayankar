@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ssl-certificate-config
+spec:
+  secretName: ssl-secret
+  duration: 2160h # 90 days
+  renewBefore: 360h # 15 days
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  dnsNames:
+    - reza-feyzabadi-nl-rg3.maxtld.dev/
